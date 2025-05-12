@@ -29,7 +29,6 @@ def create():
     """
     Create the image in local
     """
-
     url = request.form.get('url')
     qr = qrcode.QRCode(
         version=2,

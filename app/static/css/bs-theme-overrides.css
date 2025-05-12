@@ -5,9 +5,9 @@
 	--bs-primary-text-emphasis: #3128ab !important;
 	--bs-primary-bg-subtle: #dee6ff !important;
 	--bs-primary-border-subtle: #c3cfff !important;
-	--bs-light: #edf1ff !important;
-	--bs-light-rgb: 237, 241, 255 !important;
-	--bs-light-text-emphasis: #2d2887 !important;
+	--bs-light: #eaeaea !important;
+	--bs-light-rgb: 234, 234, 234 !important;
+	--bs-light-text-emphasis: #5e5e5e !important;
 	--bs-light-bg-subtle: #fbfbfb !important;
 	--bs-light-border-subtle: #f7f7f7 !important;
 	--bs-link-color: #595bfb !important;

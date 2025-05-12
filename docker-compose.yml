@@ -1,13 +1,13 @@
 version: "3.8"
 
 services:
-    app-webapp:
-        container_name: "app-webapp"
-        image: "app-webapp:1.0.0"
+    app-squarecode:
+        container_name: "app-squarecode"
+        image: "app-squarecode:1.0.0"
         build:
             context: "./app"
             dockerfile: "Dockerfile"
         ports:
-            - "8000:8000"
+            - "8999:8999"
         volumes:
             - "./app:/app"

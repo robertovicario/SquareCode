@@ -1,4 +1,4 @@
-# FlaskApp
+# SquareCode
 
 ## Overview
 
@@ -13,9 +13,9 @@ This project is a simple Flask application that serves as a template for buildin
 
 ## User Interface (UI)
 
-| <a href="https://www.robertovicario.com/FlaskApp"><img src="./docs/cover.png" alt="UI" width="384"></a> |
+| <a href="https://www.robertovicario.com/SquareCode"><img src="./docs/cover.png" alt="UI" width="384"></a> |
 | :-: |
-| **Home - FlaskApp** |
+| **Home - SquareCode** |
 
 ## Instructions
 
@@ -39,11 +39,11 @@ To run in detached mode, use:
 bash cmd.sh setup -d
 ```
 
-Once the setup process is complete, the project will be accessible at `localhost:8000`.
+Once the setup process is complete, the project will be accessible at `localhost:8999`.
 
 > [!WARNING]
 >
-> If this port is already in use, search for all occurrences of `8000` within the project and replace them with your preferred port number. After making these changes, you'll need to rebuild the project for the modifications to take effect.
+> If this port is already in use, search for all occurrences of `8999` within the project and replace them with your preferred port number. After making these changes, you'll need to rebuild the project for the modifications to take effect.
 
 ### `start`
 

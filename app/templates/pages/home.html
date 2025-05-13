@@ -6,7 +6,12 @@
 
 <!-- Jinja :: Styles -->
 {% block styles %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/pages/home.css') }}">
+<style>
+    #qrcode {
+        width: 384px !important;
+        height: 384px !important;
+    }
+</style>
 {% endblock %}
 
 <!-- Jinja :: Content -->
@@ -23,21 +28,46 @@
             <!-- Commands -->
             <div class="d-flex flex-row justify-content-center align-items-center card-body w-100 gap-2">
 
-                <!-- Form -->
-                <form class="w-100" action="{{ url_for('index.create_qrcode') }}" method="post">
-
-                    <!-- Commands -->
-                    <div class="input-group w-100">
-                        <span class="input-group-text">URL</span>
-                        <input class="form-control" type="text" name="url" value="{{ session['url'] }}">
-                        <button class="btn btn-light" type="submit">Create</button>
-                    </div>
-                </form>
-
-                <!-- Download -->
-                <a class="btn btn-primary" href="{{ session['img'] }}" download>Download</a>
+                <!-- Commands -->
+                <div class="input-group w-100">
+                    <span class="input-group-text">URL</span>
+                    <input id="input-url" class="form-control" type="text" name="url" value="{{ session['url'] }}">
+                    <a id="btn-download" class="btn btn-primary" href="{{ session['img'] }}" download>Download</a>
+                </div>
             </div>
         </div>
     </div>
 </div>
+{% endblock %}
+
+<!-- Jinja :: Scripts -->
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const input_url = document.getElementById('input-url');
+        const qrcode = document.getElementById('qrcode');
+        const btn_download = document.getElementById('btn-download');
+        let timeout_id;
+
+        input_url.addEventListener('input', () => {
+            clearTimeout(timeout_id);
+            timeout_id = setTimeout(() => {
+                const url = new FormData().append('url', input_url.value);
+                fetch("/qrcode/create", {
+                    method: 'POST',
+                    body: url
+                })
+                .then(() => {
+                    const ts = new Date().getTime();
+                    qrcode.src = `/qrcode/get?ts=${ts}`;
+                    btn_download.href = `/qrcode/get?ts=${ts}`;
+                })
+                .catch((error) => {
+                    console.error(error);
+                    alert(error);
+                });
+            }, 100);
+        });
+    });
+</script>
 {% endblock %}

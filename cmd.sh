@@ -41,7 +41,6 @@ deploy() {
     git add .
     git commit -m "Deployed the app"
     git push
-    cd ..
     rm -rf SquareCode/app
     rm -f SquareCode/.gitignore
     rm -f SquareCode/Dockerfile

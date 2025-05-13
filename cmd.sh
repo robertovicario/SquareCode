@@ -40,6 +40,10 @@ clear() {
 
 deploy() {
     printer "🚀 Deploying the app"
+    git add .
+    git commit -m "Deployed the app"
+    git push
+    cd ..
     cp -r app SquareCode
     rm -f SquareCode/app/.gitattributes
     rm -f SquareCode/app/README.md

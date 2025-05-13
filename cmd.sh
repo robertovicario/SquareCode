@@ -60,13 +60,6 @@ deploy() {
 
     # -------------------------
 
-    git checkout main
-    git add .
-    git commit -m "Deployed the app"
-    git push
-
-    # -------------------------
-
     rm -rf SquareCode/*
     cp -r app SquareCode/app
     cp .gitattributes SquareCode
@@ -82,6 +75,14 @@ deploy() {
     git commit -m "Deployed the app"
     git push
     cd ..
+
+    # -------------------------
+
+    git checkout main
+    git submodule update --remote
+    git add .
+    git commit -m "Deployed the app"
+    git push
 
     # -------------------------
     

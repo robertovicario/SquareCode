@@ -84,7 +84,7 @@ To deploy the application to production, you can use the following command:
 bash cmd.sh deploy
 ```
 
-This project leverages GitHub Actions for CI/CD. The deployment workflow is configured to automatically build the project and deploy it to the GitHub Pages environment.
+This project leverages GitHub Actions for CI/CD. The deployment workflow is configured to automatically build the project and deploy it to the HuggingFace Spaces environment.
 
 ## License
 

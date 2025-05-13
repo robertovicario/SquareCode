@@ -14,8 +14,19 @@ stop() {
 
 setup() {
     printer "🔨 Setting up the app"
+
+    # -------------------------
+
+    git submodule init
+    git submodule update
+
+    # -------------------------
+
     docker build -t app-squarecode .
     docker run --rm --name app-squarecode -p 7860:7860 app-squarecode
+
+    # -------------------------
+
     handler
 }
 

@@ -1,6 +1,7 @@
 from flask import Blueprint, current_app, redirect, render_template, request, session, url_for
 import os
 import qrcode
+import tempfile
 
 # -------------------------
 
@@ -39,17 +40,15 @@ def create():
     )
     qr.add_data(url)
     qr.make(fit=True)
-    file_path = os.path.join(current_app.root_path, 'static', 'img', 'home', 'qrcode.png')
+    file_path = tempfile.gettempdir() + '/qrcode.png'
     img = qr.make_image(fill_color='black', back_color='white')
     img.save(file_path)
 
     # -------------------------
 
     session['url'] = url
-    session['img'] = url_for('static', filename='img/home/qrcode.png')
+    session['img'] = file_path
 
     # -------------------------
 
     return redirect(url_for('index.page'))
-
-# NO COMMENT

@@ -52,7 +52,9 @@
         input_url.addEventListener('input', () => {
             clearTimeout(timeout_id);
             timeout_id = setTimeout(() => {
-                const url = new FormData().append('url', input_url.value);
+                const url = new FormData();
+                url.append('url', input_url.value);
+
                 fetch("/qrcode/create", {
                     method: 'POST',
                     body: url

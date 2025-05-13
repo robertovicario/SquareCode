@@ -18,8 +18,6 @@ def page():
         session['url'] = 'https://github.com/robertovicario/SquareCode'
     
     if 'img' not in session:
-        session['img'] = url_for('static', filename='img/home/qrcode.png')
-    else:
         session['img'] = url_for('index.get_qrcode')
 
     # -------------------------

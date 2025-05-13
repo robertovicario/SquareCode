@@ -39,11 +39,11 @@ To run in detached mode, use:
 bash cmd.sh setup -d
 ```
 
-Once the setup process is complete, the project will be accessible at `localhost:8999`.
+Once the setup process is complete, the project will be accessible at `localhost:7860`.
 
 > [!WARNING]
 >
-> If this port is already in use, search for all occurrences of `8999` within the project and replace them with your preferred port number. After making these changes, you'll need to rebuild the project for the modifications to take effect.
+> If this port is already in use, search for all occurrences of `7860` within the project and replace them with your preferred port number. After making these changes, you'll need to rebuild the project for the modifications to take effect.
 
 ### `start`
 

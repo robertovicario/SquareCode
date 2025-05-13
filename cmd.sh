@@ -1,38 +1,41 @@
 #!/bin/bash
 
 start() {
-    if [ $2 == "-d" ]; then
-        printer "🚀 Starting the app"
-        docker-compose up -d
-        handler
-    else
-        printer "🚀 Starting the app"
-        docker-compose up
-        handler
-    fi
+    printer "🚀 Starting the app"
+    docker run --name app-squarecode -p 7860:7860 app-squarecode
+    handler
 }
 
 stop() {
     printer "🛑 Stopping the app"
-    docker-compose down
+    docker stop app-squarecode
     handler
 }
 
 setup() {
-    if [ $2 == "-d" ]; then
-        printer "🔨 Setting up the app"
-        docker-compose up --build -d
-        handler
-    else
-        printer "🔨 Setting up the app"
-        docker-compose up --build
-        handler
-    fi
+    printer "🔨 Setting up the app"
+    docker build -t app-squarecode .
+    docker run --name app-squarecode -p 7860:7860 app-squarecode
+    handler
+}
+
+build() {
+    printer "🔧 Building the app"
+    mkdir build
+    cp -r app build
+    rm -f build/app/.gitattributes
+    rm -f build/app/README.md
+    cp app/.gitattributes build
+    cp app/README.md build
+    cp -r .gitignore build
+    cp -r Dockerfile build
+    handler
 }
 
 clear() {
     printer "🧹 Clearing all"
-    docker-compose down --volumes --rmi all
+    docker rm -f app-squarecode
+    docker rmi app-squarecode
     handler
 }
 
@@ -53,18 +56,21 @@ handler() {
 
 case $1 in
     start)
-        start $@
+        start
         ;;
     stop)
         stop
         ;;
     setup)
-        setup $@
+        setup
+        ;;
+    build)
+        build
         ;;
     clear)
         clear
         ;;
     *)
-        echo "Usage: $0 {start|stop|setup|clear}"
+        echo "Usage: $0 {start|stop|setup|build|clear}"
         ;;
 esac

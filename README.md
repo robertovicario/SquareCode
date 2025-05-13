@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a web application designed to create QR codes for any URL. It provides a user-friendly interface for generating QR codes quickly and efficiently, making it ideal for personal or professional use.
+This project is a web application designed to create permanent QR codes for any URL. It provides a user-friendly interface for generating QR codes quickly and efficiently, making it ideal for personal or professional use.
 
 ## Prerequisites
 

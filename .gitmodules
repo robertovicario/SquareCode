@@ -1,0 +1,3 @@
+[submodule "SquareCode"]
+	path = SquareCode
+	url = https://huggingface.co/spaces/robertovicario/SquareCode

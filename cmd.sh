@@ -60,6 +60,7 @@ deploy() {
 
     # -------------------------
 
+    git checkout main
     git add .
     git commit -m "Deployed the app"
     git push
@@ -76,6 +77,7 @@ deploy() {
     # -------------------------
 
     cd SquareCode
+    git checkout main
     git add .
     git commit -m "Deployed the app"
     git push

@@ -68,7 +68,7 @@ deploy() {
     cd SquareCode
     git add .
     git commit -m "Deployed the app"
-    git push
+    git push origin main
     cd ..
 
     # -------------------------

@@ -1,5 +1,4 @@
-from flask import Blueprint, current_app, redirect, render_template, request, session, url_for
-import os
+from flask import Blueprint, redirect, render_template, request, send_file, session, url_for
 import qrcode
 import tempfile
 
@@ -20,13 +19,15 @@ def page():
     
     if 'img' not in session:
         session['img'] = url_for('static', filename='img/home/qrcode.png')
+    else:
+        session['img'] = url_for('index.get_qrcode')
 
     # -------------------------
 
     return render_template('pages/home.html')
 
-@index_bp.route('/create', methods=['POST'])
-def create():
+@index_bp.route('/qrcode/create', methods=['POST'])
+def create_qrcode():
 
     """
     Create the image in local
@@ -40,7 +41,7 @@ def create():
     )
     qr.add_data(url)
     qr.make(fit=True)
-    file_path = tempfile.gettempdir() + '/qrcode.png'
+    file_path = f"{tempfile.gettempdir()}/qrcode.png"
     img = qr.make_image(fill_color='black', back_color='white')
     img.save(file_path)
 
@@ -52,3 +53,8 @@ def create():
     # -------------------------
 
     return redirect(url_for('index.page'))
+
+@index_bp.route('/qrcode/get', methods=['GET'])
+def get_qrcode():
+    file_path = f"{tempfile.gettempdir()}/qrcode.png"
+    return send_file(file_path, mimetype='image/png')

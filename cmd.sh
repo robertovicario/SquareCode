@@ -2,7 +2,7 @@
 
 start() {
     printer "🚀 Starting the app"
-    docker run --name app-squarecode -p 7860:7860 app-squarecode
+    docker run --rm --name app-squarecode -p 7860:7860 app-squarecode
     handler
 }
 
@@ -15,7 +15,7 @@ stop() {
 setup() {
     printer "🔨 Setting up the app"
     docker build -t app-squarecode .
-    docker run --name app-squarecode -p 7860:7860 app-squarecode
+    docker run --rm --name app-squarecode -p 7860:7860 app-squarecode
     handler
 }
 

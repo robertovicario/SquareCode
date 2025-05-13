@@ -21,10 +21,11 @@ setup() {
 
 build() {
     printer "🔧 Building the app"
-    rm -r -f build
+    rm -rf build/*
     cp -r app build
     cp .gitignore build
     cp Dockerfile build
+    cp app/README.md build
     handler
 }
 
@@ -41,10 +42,14 @@ deploy() {
     git commit -m "Deployed the app"
     git push
     cd ..
-    rm -r -f SquareCode
+    rm -rf SquareCode/app
+    rm -f SquareCode/.gitignore
+    rm -f SquareCode/Dockerfile
+    rm -f SquareCode/app/README.md
     cp -r app SquareCode
     cp .gitignore SquareCode
     cp Dockerfile SquareCode
+    cp app/README.md SquareCode
     cd SquareCode
     git add .
     git commit -m "Deployed the app"

@@ -1,6 +1,6 @@
 ---
 title: SquareCode
-emoji: 🏃
+emoji: 📦
 colorFrom: pink
 colorTo: red
 sdk: docker

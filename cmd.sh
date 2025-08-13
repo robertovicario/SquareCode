@@ -14,26 +14,14 @@ stop() {
 
 setup() {
     printer "🔨 Setting up the app"
-
-    # -------------------------
-
     git submodule update --init --recursive
-
-    # -------------------------
-
     docker build -t app-squarecode .
     docker run --rm --name app-squarecode -p 7860:7860 app-squarecode
-
-    # -------------------------
-
     handler
 }
 
 build() {
     printer "🔧 Building the app"
-
-    # -------------------------
-
     mkdir -p build
     rm -rf build/*
     cp -r app build/app
@@ -42,9 +30,6 @@ build() {
     cp .gitignore build
     cp Dockerfile build
     cp app/README.md build
-
-    # -------------------------
-
     handler
 }
 
@@ -57,35 +42,23 @@ clear() {
 
 deploy() {
     printer "📦 Deploying the app"
-
-    # -------------------------
-
     rm -rf SquareCode/*
     cp -r app SquareCode/app
     cp .gitattributes SquareCode
     cp .gitignore SquareCode
     cp Dockerfile SquareCode
     cp app/README.md SquareCode
-
-    # -------------------------
-
     cd SquareCode
     git checkout main
     git add .
     git commit -m "Deployed the app"
     git push
     cd ..
-
-    # -------------------------
-
     git checkout main
     git submodule update --remote
     git add .
     git commit -m "Deployed the app"
     git push
-
-    # -------------------------
-    
     handler
 }
 

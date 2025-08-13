@@ -9,7 +9,6 @@ This project is a web application designed to create permanent QR codes for any 
 > [!IMPORTANT]
 >
 > - Docker
-> - Docker Compose
 
 ## User Interface (UI)
 

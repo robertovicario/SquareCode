@@ -1,5 +1,7 @@
 #!/bin/bash
 
+VENV_DIR="venv"
+
 start() {
     printer "🚀 Starting the app"
     docker run --rm --name app-squarecode -p 7860:7860 app-squarecode
@@ -14,6 +16,9 @@ stop() {
 
 setup() {
     printer "🔨 Setting up the app"
+    python -m venv $VENV_DIR
+    source $VENV_DIR/bin/activate
+    pip install --upgrade pip
     git submodule update --init --recursive
     docker build -t app-squarecode .
     docker run --rm --name app-squarecode -p 7860:7860 app-squarecode
@@ -35,6 +40,7 @@ build() {
 
 clear() {
     printer "🧹 Clearing all"
+    rm -rf $VENV_DIR
     docker rm -f app-squarecode
     docker rmi app-squarecode
     handler
@@ -42,13 +48,13 @@ clear() {
 
 deploy() {
     printer "📦 Deploying the app"
-    rm -rf SquareCode/*
-    cp -r app SquareCode/app
-    cp .gitattributes SquareCode
-    cp .gitignore SquareCode
-    cp Dockerfile SquareCode
-    cp app/README.md SquareCode
-    cd SquareCode
+    rm -rf squarecode/*
+    cp -r app squarecode/app
+    cp .gitattributes squarecode
+    cp .gitignore squarecode
+    cp Dockerfile squarecode
+    cp app/README.md squarecode
+    cd squarecode
     git checkout main
     git add .
     git commit -m "Deployed the app"

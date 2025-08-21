@@ -9,10 +9,11 @@ This project is a web application designed to create permanent QR codes for any 
 > [!IMPORTANT]
 >
 > - Docker
+> - Docker Compose
 
 ## User Interface (UI)
 
-| <a href="https://robertovicario-squarecode.hf.space"><img src="./docs/cover.png" alt="UI" width="384"></a> |
+| <a href="https://robertovicario-squarecode.hf.space"><img src="docs/cover.png" alt="UI" width="384"></a> |
 | :-: |
 | **Home - SquareCode** |
 
@@ -73,7 +74,7 @@ To generate the static files for the project, run the following command:
 bash cmd.sh build
 ```
 
-After the build process completes, the static files will be available in the `./app/build` directory.
+After the build process completes, the static files will be available in the `build` directory.
 
 ### `deploy`
 

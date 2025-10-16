@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a simple Python application that serves as a template for building web applications. It includes a basic structure with Docker support for easy deployment and development.
+This project is a web application designed to create permanent QR codes for any URL. It provides a user-friendly interface for generating QR codes quickly and efficiently, making it ideal for personal or professional use.
 
 ## Prerequisites
 
@@ -13,7 +13,7 @@ This project is a simple Python application that serves as a template for buildi
 
 ## User Interface (UI)
 
-| <a href="https://SquareCode-8jk6.onrender.com"><img src="docs/cover.png" alt="UI" width="512"></a> |
+| <a href="https://squarecode.onrender.com"><img src="docs/cover.png" alt="UI" width="512"></a> |
 | :-: |
 | **Home - SquareCode** |
 
@@ -65,6 +65,10 @@ If you need to clear all containers and their orphaned dependencies, you can run
 ```sh
 bash cmd.sh clear
 ```
+
+### `deploy`
+
+This project leverages GitHub Actions for CI/CD. The deployment workflow is configured to automatically build the project and deploy it to production.
 
 ## License
 

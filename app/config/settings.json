@@ -1,13 +1,20 @@
 {
     "system": {
-        "name": "PythonApp",
+        "name": "SquareCode",
         "port": 7860,
-        "version": "1.0.0",
+        "version": "2.0.0",
         "repository": {
             "server": "github.com",
             "user": "robertovicario",
-            "name": "PythonApp",
-            "url": "https://github.com/robertovicario/PythonApp"
+            "name": "SquareCode",
+            "url": "https://github.com/robertovicario/SquareCode"
+        }
+    },
+    "static": {
+        "img": {
+            "home": [
+                "img/home/1.png"
+            ]
         }
     }
 }

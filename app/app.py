@@ -3,8 +3,9 @@
 # -------------------------
 
 from flask import Flask
-import os
 import json
+import os
+import secrets
 
 # -------------------------
 
@@ -16,6 +17,7 @@ from routes.index import index_bp
 # -------------------------
 
 app = Flask(__name__)
+app.secret_key = secrets.token_hex(32)
 
 # -------------------------
 # Configuration Settings

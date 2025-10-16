@@ -2,7 +2,7 @@
 {% extends 'base.html' %}
 
 <!-- Jinja :: Theme -->
-{% set theme_title = 'Home - PythonApp' %}
+{% set theme_title = 'Home - SquareCode' %}
 
 <!-- Jinja :: Styles -->
 {% block styles %}
@@ -11,8 +11,27 @@
 
 <!-- Jinja :: Content -->
 {% block content %}
-<div class="d-flex flex-column justify-content-center align-items-center">
-    <h1 id="hello" class="display-1 mb-3 text-primary">Hello, World!</h1>
-    <p class="display-6">Get your Python app up and running in seconds.</p>
+<div class="container">
+    <div class="row">
+        <div class="d-flex justify-content-center align-items-center gap-5 card p-5">
+
+            <!-- Image -->
+            <div class="d-flex justify-content-center align-items-center">
+                <img id="qrcode" class="rounded-5" src="{{ session['img'] }}" alt="Image">
+            </div>
+
+            <!-- Commands -->
+            <div class="input-group w-100">
+                <span class="input-group-text">URL</span>
+                <input id="input-url" class="form-control" type="text" name="url" value="{{ config.system.repository.url }}">
+                <a id="btn-download" class="btn btn-primary" href="{{ session['img'] }}" download>Download</a>
+            </div>
+        </div>
+    </div>
 </div>
+{% endblock %}
+
+<!-- Jinja :: Scripts -->
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/pages/home.js') }}"></script>
 {% endblock %}

@@ -1,4 +1,4 @@
-# PythonApp
+# SquareCode
 
 ## Overview
 
@@ -13,9 +13,9 @@ This project is a simple Python application that serves as a template for buildi
 
 ## User Interface (UI)
 
-| <a href="https://pythonapp-8jk6.onrender.com"><img src="docs/cover.png" alt="UI" width="512"></a> |
+| <a href="https://SquareCode-8jk6.onrender.com"><img src="docs/cover.png" alt="UI" width="512"></a> |
 | :-: |
-| **Home - PythonApp** |
+| **Home - SquareCode** |
 
 ## Instructions
 

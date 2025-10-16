@@ -9,12 +9,5 @@
             "name": "SquareCode",
             "url": "https://github.com/robertovicario/SquareCode"
         }
-    },
-    "static": {
-        "img": {
-            "home": [
-                "img/home/1.png"
-            ]
-        }
     }
 }
